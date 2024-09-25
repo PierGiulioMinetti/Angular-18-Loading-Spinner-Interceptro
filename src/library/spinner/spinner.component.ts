@@ -12,13 +12,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './spinner.component.scss'
 })
 export class SpinnerComponent {
-
   loading = inject(LoadingService).loading;
-
-  detectRouteTransitions = input<boolean>(false);
-
-  @ContentChild("loading")
-  customLoadingIndicator: TemplateRef<any> | null = null;
 
   constructor(
   private loadingService: LoadingService, 
@@ -26,18 +20,23 @@ export class SpinnerComponent {
   }
 
   ngOnInit() {
-    debugger
-      this.router.events
-        .pipe(
-          tap((event) => {
-            if (event instanceof NavigationStart) {
-              this.loadingService.show();
-            } else if (event instanceof NavigationEnd) {
-              this.loadingService.hide();
-            }
-          })
-        )
-        .subscribe(res => console.log(res)
-        );
+    this.listenToNativagion();
+  }
+  
+  listenToNativagion(){
+    this.router.events
+      .pipe(
+        tap((event) => {
+          if (event instanceof NavigationStart) {
+            this.loadingService.show();
+          } else if (event instanceof NavigationEnd) {
+            this.loadingService.hide();
+          }
+        })
+      )
+      .subscribe(
+        // res => console.log(res)
+      );
+
   }
 }

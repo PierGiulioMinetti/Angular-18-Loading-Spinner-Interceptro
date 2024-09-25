@@ -7,13 +7,14 @@
   </button>
 </ul>
 
-  <app-spinner  [detectRouteTransitions]="true">
-    <!--if down here we provide an alternative spinner the component will render the #2 insted of the #1 -->
+<p>
+  The purpose of this project is to use the angular router to apply a navigation spinner when we change route using the Angular Router Events, and show the spinner when an HTTP calls is send and we receive the response. 
+</p>
 
-    <!-- <ng-template #loading>
-      <div class="custom-spinner">
-        alterantive spinner
-      </div>
-    </ng-template> -->
+<button (click)="getPost()">
+  GET POST
+</button>
+
+  <app-spinner >
   </app-spinner>
 <router-outlet />

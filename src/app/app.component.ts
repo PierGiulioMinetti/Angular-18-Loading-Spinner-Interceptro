@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { SpinnerComponent } from '../library/spinner/spinner.component';
-import { filter, map, Observable, of } from 'rxjs';
+import { delay, filter, map, Observable, of } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { LoadingService } from '../core/services/loading.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -15,22 +16,25 @@ import { LoadingService } from '../core/services/loading.service';
 export class AppComponent {
   title = 'angular18Spinner';
 
-  constructor(private router: Router, private loadingService: LoadingService){
+  constructor(
+    private http: HttpClient
+  ){
   }
 
   ngOnInit() {
-    this.loadingSpinner();
   }
 
-
-  loadingSpinner() {
-    try {
-      this.loadingService.show();
-      // load courses from backend
-    } catch (error) {
-      // handle error message
-    } finally {
-      this.loadingService.hide();
-    }
+  getPost(){
+    this.http.get('https://jsonplaceholder.typicode.com/todos/1')
+    .pipe(
+      delay(3000)
+    )
+    .subscribe((res)=>{
+      console.log(res);
+      if(res){
+      }
+      
+    })
   }
+
 }
