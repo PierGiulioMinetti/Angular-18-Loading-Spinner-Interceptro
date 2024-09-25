@@ -1,0 +1,19 @@
+<ul>
+  <button routerLink="/">
+    HOME
+  </button>
+  <button routerLink="/posts">
+    POSTS
+  </button>
+</ul>
+
+  <app-spinner  [detectRouteTransitions]="true">
+    <!--if down here we provide an alternative spinner the component will render the #2 insted of the #1 -->
+
+    <!-- <ng-template #loading>
+      <div class="custom-spinner">
+        alterantive spinner
+      </div>
+    </ng-template> -->
+  </app-spinner>
+<router-outlet />

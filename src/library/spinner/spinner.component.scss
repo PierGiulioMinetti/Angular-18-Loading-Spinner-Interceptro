@@ -1,0 +1,74 @@
+
+/* spinner.component.css */
+.dot-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .dot {  
+    width: 30px;
+    height: 30px;
+    background-color: rgba(60,60,60,.20); /* Change this to your desired color */
+    border-radius: 33%;
+    margin: 0 5px;
+    opacity: 1; /* Initial opacity */
+    animation: dot-blink 500ms infinite;
+  }
+  
+  .dot:nth-child(1) {
+    animation-delay: 0s;
+  }
+  
+  .dot:nth-child(2) {
+    animation-delay: 50ms;
+  }
+  
+  .dot:nth-child(3) {
+    animation-delay: 100ms;
+  }
+  
+  .dot:nth-child(4) {
+    animation-delay: 150ms;
+  }
+  
+  .dot:nth-child(5) {
+    animation-delay: 200ms;
+  }
+  
+  .dot:nth-child(6) {
+    animation-delay: 250ms;
+  }
+  
+  .dot:nth-child(7) {
+    animation-delay: 300ms;
+  }
+  
+  .dot:nth-child(8) {
+    animation-delay: 350ms;
+  }
+  
+  .dot:nth-child(9) {
+    animation-delay: 400ms;
+  }
+  
+  .dot:nth-child(10) {
+    animation-delay: 450ms;
+  }
+  
+  @keyframes dot-blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    33% {
+      opacity: 0.8;
+    }
+    66% {
+      opacity: 0.5;
+    }
+    
+    100% {
+      opacity: 0;
+    }
+  }
+  
